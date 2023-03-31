@@ -11,8 +11,9 @@
     title: (번역 중)
   title: 튜토리얼
 - sections:
-  - local: in_translation
-    title: (번역 중)
+  - sections:
+    - local: custom_models
+      title: 커스텀 모델 번역하기
   title: How-to 가이드
 - sections:
   - local: in_translation
