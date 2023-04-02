@@ -26,26 +26,6 @@
       title: 작업 가이드
       isExpanded: false
     title: 자연어처리
-  - sections:
-    - local: in_translation
-      title: (번역 중)
-    title: 오디오
-  - sections:
-    - local: in_translation
-      title: (번역 중)
-    title: 컴퓨터비전
-  - sections:
-    - local: in_translation
-      title: (번역 중)
-    title: 멀티모달
-  - sections:
-    - local: in_translation
-      title: (번역 중)
-    title: 성능 및 확장성
-  - sections:
-    - local: in_translation
-      title: (번역 중)
-    title: 기여하기
   - local: in_translation
     title: (번역 중)
   title: How-to 가이드
