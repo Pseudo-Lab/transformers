@@ -11,6 +11,41 @@
     title: (번역 중)
   title: 튜토리얼
 - sections:
+  - sections:
+    - local: in_translation
+      title: (번역 중)
+    title: 일반 사용법
+  - sections:
+    - local: in_translation
+      title: (번역 중)
+    - sections:
+      - local: tasks/sequence_classification
+        title: 텍스트 분류
+      - local: in_translation
+        title: (번역 중)
+      title: 작업 가이드
+      isExpanded: false
+    title: 자연어처리
+  - sections:
+    - local: in_translation
+      title: (번역 중)
+    title: 오디오
+  - sections:
+    - local: in_translation
+      title: (번역 중)
+    title: 컴퓨터비전
+  - sections:
+    - local: in_translation
+      title: (번역 중)
+    title: 멀티모달
+  - sections:
+    - local: in_translation
+      title: (번역 중)
+    title: 성능 및 확장성
+  - sections:
+    - local: in_translation
+      title: (번역 중)
+    title: 기여하기
   - local: in_translation
     title: (번역 중)
   title: How-to 가이드
