@@ -23,9 +23,9 @@
         title: 텍스트 분류
       - local: in_translation
         title: (번역 중)
-      title: 작업 가이드
+      title: 태스크별 가이드
       isExpanded: false
-    title: 자연어처리
+    title: 자연어처리(NLP)
   - local: in_translation
     title: (번역 중)
   title: How-to 가이드
