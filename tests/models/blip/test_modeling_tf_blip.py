@@ -189,7 +189,10 @@ class TFBlipVisionModelTest(TFModelTesterMixin, unittest.TestCase):
     @slow
     def test_model_from_pretrained(self):
         for model_name in TF_BLIP_PRETRAINED_MODEL_ARCHIVE_LIST[:1]:
-            model = TFBlipVisionModel.from_pretrained(model_name)
+            try:
+                model = TFBlipVisionModel.from_pretrained(model_name)
+            except OSError:
+                model = TFBlipVisionModel.from_pretrained(model_name, from_pt=True)
             self.assertIsNotNone(model)
 
 
@@ -317,7 +320,10 @@ class TFBlipTextModelTest(TFModelTesterMixin, unittest.TestCase):
     @slow
     def test_model_from_pretrained(self):
         for model_name in TF_BLIP_PRETRAINED_MODEL_ARCHIVE_LIST[:1]:
-            model = TFBlipTextModel.from_pretrained(model_name)
+            try:
+                model = TFBlipTextModel.from_pretrained(model_name)
+            except OSError:
+                model = TFBlipTextModel.from_pretrained(model_name, from_pt=True)
             self.assertIsNotNone(model)
 
     def test_pt_tf_model_equivalence(self, allow_missing_keys=True):
@@ -426,7 +432,7 @@ class TFBlipModelTest(TFModelTesterMixin, PipelineTesterMixin, unittest.TestCase
     @slow
     def test_model_from_pretrained(self):
         for model_name in TF_BLIP_PRETRAINED_MODEL_ARCHIVE_LIST[:1]:
-            model = TFBlipModel.from_pretrained(model_name)
+            model = TFBlipModel.from_pretrained(model_name, from_pt=True)
             self.assertIsNotNone(model)
 
     def test_pt_tf_model_equivalence(self, allow_missing_keys=True):
@@ -629,7 +635,7 @@ class TFBlipTextRetrievalModelTest(TFModelTesterMixin, unittest.TestCase):
     @slow
     def test_model_from_pretrained(self):
         for model_name in TF_BLIP_PRETRAINED_MODEL_ARCHIVE_LIST[:1]:
-            model = TFBlipModel.from_pretrained(model_name)
+            model = TFBlipModel.from_pretrained(model_name, from_pt=True)
             self.assertIsNotNone(model)
 
     @unittest.skip(reason="Tested in individual model tests")
@@ -744,7 +750,10 @@ class TFBlipTextImageModelTest(TFModelTesterMixin, unittest.TestCase):
     @slow
     def test_model_from_pretrained(self):
         for model_name in TF_BLIP_PRETRAINED_MODEL_ARCHIVE_LIST[:1]:
-            model = TFBlipModel.from_pretrained(model_name)
+            try:
+                model = TFBlipModel.from_pretrained(model_name)
+            except OSError:
+                model = TFBlipModel.from_pretrained(model_name, from_pt=True)
             self.assertIsNotNone(model)
 
 
@@ -760,7 +769,7 @@ def prepare_img():
 @slow
 class TFBlipModelIntegrationTest(unittest.TestCase):
     def test_inference_image_captioning(self):
-        model = TFBlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
+        model = TFBlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base", from_pt=True)
         processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
         image = prepare_img()
 
@@ -787,7 +796,7 @@ class TFBlipModelIntegrationTest(unittest.TestCase):
         )
 
     def test_inference_vqa(self):
-        model = TFBlipForQuestionAnswering.from_pretrained("Salesforce/blip-vqa-base")
+        model = TFBlipForQuestionAnswering.from_pretrained("Salesforce/blip-vqa-base", from_pt=True)
         processor = BlipProcessor.from_pretrained("Salesforce/blip-vqa-base")
 
         image = prepare_img()
@@ -799,7 +808,7 @@ class TFBlipModelIntegrationTest(unittest.TestCase):
         self.assertEqual(out[0].numpy().tolist(), [30522, 1015, 102])
 
     def test_inference_itm(self):
-        model = TFBlipForImageTextRetrieval.from_pretrained("Salesforce/blip-itm-base-coco")
+        model = TFBlipForImageTextRetrieval.from_pretrained("Salesforce/blip-itm-base-coco", from_pt=True)
         processor = BlipProcessor.from_pretrained("Salesforce/blip-itm-base-coco")
 
         image = prepare_img()
